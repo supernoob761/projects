@@ -93,6 +93,7 @@ function safeText(v){ return (v===null||v===undefined)?'':String(v) }
 
 
 function renderUnassignedStaff() {
+  console.log(staffs)
   staffcon.innerHTML = ''
   staffs.filter(s => !s.location).forEach(staff => {
     const card = document.createElement('div')
@@ -237,7 +238,7 @@ realForm && realForm.addEventListener('submit', function (e) {
       to: exp.querySelector('.exp-to').value
     });
   });
-
+  staffs.push(info)
   saveAll();
   RemoveAdd();
   renderUnassignedStaff();
@@ -261,6 +262,7 @@ function AddExperiance(data) {
     if(confirm('Are you sure you want to delete this experience?')) formDiv.remove() 
   })
 }
+
 
 function Removeexp(button) {
   const el = button.closest('.experience_Form')
